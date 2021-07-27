@@ -13,7 +13,7 @@ INNER JOIN	CategoryTax CT
 ON			C.Id = CT.CategoryId
 INNER JOIN	TAX T
 ON			CT.TaxId = T.Id
-WHERE		I.Id IN (7)
+--WHERE		I.Id IN (7)
 ORDER BY Name
 
 SELECT	
