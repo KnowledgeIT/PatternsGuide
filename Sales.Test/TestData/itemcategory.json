@@ -1,0 +1,296 @@
+{
+  "id": 0,
+  "createdAt": "2021-07-24T15:28:10.651Z",
+  "updatedAt": "2021-07-24T15:28:10.651Z",
+  "itemId": 0,
+  "categoryId": 0,
+  "category": {
+    "id": 0,
+    "createdAt": "2021-07-24T15:28:10.651Z",
+    "updatedAt": "2021-07-24T15:28:10.651Z",
+    "name": "string",
+    "taxId": 0,
+    "tax": {
+      "id": 0,
+      "createdAt": "2021-07-24T15:28:10.651Z",
+      "updatedAt": "2021-07-24T15:28:10.651Z",
+      "value": 0,
+      "tax": [
+        {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.651Z",
+          "updatedAt": "2021-07-24T15:28:10.651Z",
+          "value": 0,
+          "tax": [
+            "string"
+          ]
+        }
+      ]
+    },
+    "itemCategory": [
+      {
+        "id": 0,
+        "createdAt": "2021-07-24T15:28:10.651Z",
+        "updatedAt": "2021-07-24T15:28:10.651Z",
+        "itemId": 0,
+        "categoryId": 0,
+        "category": "string",
+        "item": {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.651Z",
+          "updatedAt": "2021-07-24T15:28:10.651Z",
+          "name": "string",
+          "description": "string",
+          "available": true,
+          "itemCategory": [
+            "string"
+          ],
+          "itemPrice": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "price": 0,
+              "itemId": 0,
+              "startDate": "2021-07-24T15:28:10.651Z",
+              "endDate": "2021-07-24T15:28:10.651Z",
+              "item": "string"
+            }
+          ],
+          "orderItem": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "completedAt": "2021-07-24T15:28:10.651Z",
+              "orderId": 0,
+              "itemId": 0,
+              "netPrice": 0,
+              "totalTaxes": 0,
+              "totalPrice": 0,
+              "item": "string",
+              "order": {
+                "id": 0,
+                "createdAt": "2021-07-24T15:28:10.651Z",
+                "updatedAt": "2021-07-24T15:28:10.651Z",
+                "completedAt": "2021-07-24T15:28:10.651Z",
+                "orderItem": [
+                  "string"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "item": {
+    "id": 0,
+    "createdAt": "2021-07-24T15:28:10.651Z",
+    "updatedAt": "2021-07-24T15:28:10.651Z",
+    "name": "string",
+    "description": "string",
+    "available": true,
+    "itemCategory": [
+      {
+        "id": 0,
+        "createdAt": "2021-07-24T15:28:10.651Z",
+        "updatedAt": "2021-07-24T15:28:10.651Z",
+        "itemId": 0,
+        "categoryId": 0,
+        "category": "string",
+        "item": {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.651Z",
+          "updatedAt": "2021-07-24T15:28:10.651Z",
+          "name": "string",
+          "description": "string",
+          "available": true,
+          "itemCategory": [
+            "string"
+          ],
+          "itemPrice": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "price": 0,
+              "itemId": 0,
+              "startDate": "2021-07-24T15:28:10.651Z",
+              "endDate": "2021-07-24T15:28:10.651Z",
+              "item": "string"
+            }
+          ],
+          "orderItem": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "completedAt": "2021-07-24T15:28:10.651Z",
+              "orderId": 0,
+              "itemId": 0,
+              "netPrice": 0,
+              "totalTaxes": 0,
+              "totalPrice": 0,
+              "item": "string",
+              "order": {
+                "id": 0,
+                "createdAt": "2021-07-24T15:28:10.651Z",
+                "updatedAt": "2021-07-24T15:28:10.651Z",
+                "completedAt": "2021-07-24T15:28:10.651Z",
+                "orderItem": [
+                  "string"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "itemPrice": [
+      {
+        "id": 0,
+        "createdAt": "2021-07-24T15:28:10.651Z",
+        "updatedAt": "2021-07-24T15:28:10.651Z",
+        "price": 0,
+        "itemId": 0,
+        "startDate": "2021-07-24T15:28:10.651Z",
+        "endDate": "2021-07-24T15:28:10.651Z",
+        "item": {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.651Z",
+          "updatedAt": "2021-07-24T15:28:10.651Z",
+          "name": "string",
+          "description": "string",
+          "available": true,
+          "itemCategory": [
+            "string"
+          ],
+          "itemPrice": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "price": 0,
+              "itemId": 0,
+              "startDate": "2021-07-24T15:28:10.651Z",
+              "endDate": "2021-07-24T15:28:10.651Z",
+              "item": "string"
+            }
+          ],
+          "orderItem": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "completedAt": "2021-07-24T15:28:10.651Z",
+              "orderId": 0,
+              "itemId": 0,
+              "netPrice": 0,
+              "totalTaxes": 0,
+              "totalPrice": 0,
+              "item": "string",
+              "order": {
+                "id": 0,
+                "createdAt": "2021-07-24T15:28:10.651Z",
+                "updatedAt": "2021-07-24T15:28:10.651Z",
+                "completedAt": "2021-07-24T15:28:10.651Z",
+                "orderItem": [
+                  "string"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "orderItem": [
+      {
+        "id": 0,
+        "createdAt": "2021-07-24T15:28:10.651Z",
+        "updatedAt": "2021-07-24T15:28:10.651Z",
+        "completedAt": "2021-07-24T15:28:10.651Z",
+        "orderId": 0,
+        "itemId": 0,
+        "netPrice": 0,
+        "totalTaxes": 0,
+        "totalPrice": 0,
+        "item": {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.651Z",
+          "updatedAt": "2021-07-24T15:28:10.651Z",
+          "name": "string",
+          "description": "string",
+          "available": true,
+          "itemCategory": [
+            "string"
+          ],
+          "itemPrice": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "price": 0,
+              "itemId": 0,
+              "startDate": "2021-07-24T15:28:10.651Z",
+              "endDate": "2021-07-24T15:28:10.651Z",
+              "item": "string"
+            }
+          ],
+          "orderItem": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.651Z",
+              "updatedAt": "2021-07-24T15:28:10.651Z",
+              "completedAt": "2021-07-24T15:28:10.651Z",
+              "orderId": 0,
+              "itemId": 0,
+              "netPrice": 0,
+              "totalTaxes": 0,
+              "totalPrice": 0,
+              "item": "string",
+              "order": {
+                "id": 0,
+                "createdAt": "2021-07-24T15:28:10.652Z",
+                "updatedAt": "2021-07-24T15:28:10.652Z",
+                "completedAt": "2021-07-24T15:28:10.652Z",
+                "orderItem": [
+                  "string"
+                ]
+              }
+            }
+          ]
+        },
+        "order": {
+          "id": 0,
+          "createdAt": "2021-07-24T15:28:10.652Z",
+          "updatedAt": "2021-07-24T15:28:10.652Z",
+          "completedAt": "2021-07-24T15:28:10.652Z",
+          "orderItem": [
+            {
+              "id": 0,
+              "createdAt": "2021-07-24T15:28:10.652Z",
+              "updatedAt": "2021-07-24T15:28:10.652Z",
+              "completedAt": "2021-07-24T15:28:10.652Z",
+              "orderId": 0,
+              "itemId": 0,
+              "netPrice": 0,
+              "totalTaxes": 0,
+              "totalPrice": 0,
+              "item": "string",
+              "order": {
+                "id": 0,
+                "createdAt": "2021-07-24T15:28:10.652Z",
+                "updatedAt": "2021-07-24T15:28:10.652Z",
+                "completedAt": "2021-07-24T15:28:10.652Z",
+                "orderItem": [
+                  "string"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

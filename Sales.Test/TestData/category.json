@@ -1,0 +1,410 @@
+[
+  {
+    "name": "Books",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Sample Book 1",
+          "Description": "Sample Book 1",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 12.49
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Sample Book 2",
+          "description": "Sample Book 2",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 12.49
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Imported Books",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Sample Book 1",
+          "description": "Imported Sample Book 1",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 12.49
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Sample Book 2",
+          "description": "Imported Sample Book 2",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 12.49
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 2
+      }
+    ]
+  },
+  {
+    "name": "Music",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Music CD",
+          "description": "Music CD",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Songs CD",
+          "description": "Songs CD" ,
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      }
+    ]
+  },
+  {
+    "name": "Imported Music",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Music CD",
+          "description": "Imported Music CD",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Songs CD",
+          "description": "Imported Songs CD",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      },
+      {
+        "taxId": 2
+      }
+    ]
+  },
+  {
+    "name": "Medicine",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Packet of Headache Pills",
+          "description": "Packet of Headache Pills",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 9.75
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Analgesic Bottle",
+          "description": "Analgesic Bottle",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 9.75
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Imported Medicine",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Packet of Headache Pills",
+          "description": "Imported Packet of Headache Pills",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Analgesic Bottle",
+          "description": "Imported Analgesic Bottle",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 14.99
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 2
+      }
+    ]
+  },
+  {
+    "name": "Foods",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Chocolate Bar",
+          "description": "Chocolate Bar",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 0.85
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Box of Chocolates",
+          "description": "Box of Chocolates",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 10
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Imported Foods",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Box of Chocolates",
+          "description": "Imported Box of Chocolates",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 10
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Box of Chocolates",
+          "description": "Imported Box of Chocolates",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 11.25
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 2
+      }
+    ]
+  },
+  {
+    "name": "Beverages",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Orange Juice",
+          "description": "Orange Juice",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 0.8
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Soda",
+          "description": "Soda",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 1
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      }
+    ]
+  },
+  {
+    "name": "Imported Beverages",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Beer",
+          "description": "Imported Beer",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 3
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Wine",
+          "description": "Importe Wine",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 17.3
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      },
+      {
+        "taxId": 2
+      }
+    ]
+  },
+  {
+    "name": "Health and Beauty",
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Bottle of Perfume",
+          "description": "Bottle of Perfume",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 18.99
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Bottle of Perfume",
+          "description": "Bottle of Perfume",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 17.3
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      }
+    ]
+  },
+  {
+    "name": "Imported Health and Beauty",
+    "imported": true,
+    "itemCategory": [
+      {
+        "item": {
+          "name": "Imported Bottle of Perfume",
+          "description": "Imported Bottle of Perfume",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 27.99
+            }
+          ]
+        }
+      },
+      {
+        "item": {
+          "name": "Imported Bottle of Perfume",
+          "description": "Imported Bottle of Perfume",
+          "available": true,
+          "itemPrice": [
+            {
+              "price": 47.5
+            }
+          ]
+        }
+      }
+    ],
+    "categoryTax": [
+      {
+        "taxId": 1
+      },
+      {
+        "taxId": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\Application\**" />
+    <EmbeddedResource Remove="ViewModels\Application\**" />
+    <None Remove="ViewModels\Application\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\Base\GenericServiceBase.cs" />
+    <Compile Remove="Services\Base\Interfaces\IGenericServiceBase.cs" />
+    <Compile Remove="ViewModels\Internal\CardPagedViewModel.cs" />
+    <Compile Remove="ViewModels\Internal\CharacterPagedViewModel.cs" />
+    <Compile Remove="ViewModels\Internal\DimensionPagedViewModel.cs" />
+    <Compile Remove="ViewModels\Internal\TripHistoryPagedViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Internal\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales.Infrastructure\Sales.Infrastructure.csproj" />
+    <ProjectReference Include="..\Sales.Model\Sales.Model.csproj" />
+  </ItemGroup>
+
+</Project>

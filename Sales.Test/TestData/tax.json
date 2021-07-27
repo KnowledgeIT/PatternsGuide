@@ -1,0 +1,13 @@
+[
+  {
+    "id": 0,
+    "description": "Basic",
+    "value": 10
+  },
+  {
+    "id": 0,
+    "description": "Import Duty",
+    "value": 5,
+    "imports": true
+  }
+]
