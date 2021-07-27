@@ -28,4 +28,6 @@ The endpoint: ​"/api​/orders​/{id}​/receipt" allows you to query the pur
 
 ![image](https://user-images.githubusercontent.com/42974994/127156318-7fce53f7-b274-4860-a0ef-5a329fd66496.png)
 
-<b>Note: This is a start of a project to illustrate a real-life project structure that is widely used in large companies. More examples will be added in this project such as, Web interface, Microservices architecture, Docker, Dapper, Authentication Patterns, among others. So at the moment I'm not accepting third party commits. Please don't create branches and don't change the sources of this project in my repository. They can be used as a great example for studies and applied to their personal and work projects. I hope they put it to good use ;)</b>
+<b>Note: The TDD project is still being adjusted. So, don't test for now. I'll provide another version untill the end of this week fully functional.</b>
+
+<b>IMPORTANT: This is a start of a project to illustrate a real-life project structure that is widely used in large companies. More examples will be added in this project such as, Web interface, Microservices architecture, Docker, Dapper, Authentication Patterns, among others. So at the moment I'm not accepting third party commits. Please don't create branches and don't change the sources of this project in my repository. They can be used as a great example for studies and applied to their personal and work projects. I hope they put it to good use ;)</b>
