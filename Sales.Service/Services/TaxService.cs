@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using Sales.Infrastructure.Repositories.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
+using Sales.Model.Repositories.Interfaces;
 using Sales.Service.Services.Base;
 using Sales.Service.Services.Interfaces;
 using Sales.Service.ViewModels.Internal;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sales.Service.Services

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Sales.CrossCutting.Helpers;
-using Sales.Infrastructure.Repositories.Base.Interfaces;
+using Sales.Model.Repositories.Base.Interfaces;
 using Sales.Service.Services.Base.Interfaces;
 using Sales.Service.ViewModels.Internal;
 using System.Collections.Generic;

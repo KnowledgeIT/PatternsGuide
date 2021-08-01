@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sales.Infrastructure.Repositories.Base.Interfaces
+namespace Sales.Model.Repositories.Base.Interfaces
 {
     public interface IGenericRepositoryBase
     {

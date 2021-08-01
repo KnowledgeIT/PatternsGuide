@@ -1,6 +1,6 @@
-﻿using Sales.Infrastructure.Contexts;
-using Sales.Infrastructure.UoW.Interfaces;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using Sales.Infrastructure.Contexts;
+using Sales.Model.UoW.Interfaces;
 using System;
 using System.Threading.Tasks;
 

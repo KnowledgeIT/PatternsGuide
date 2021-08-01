@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories.Base;
-using Sales.Infrastructure.Repositories.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
+using Sales.Model.Repositories.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
 

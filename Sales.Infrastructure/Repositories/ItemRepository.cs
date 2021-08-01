@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories.Base;
-using Sales.Infrastructure.Repositories.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
+using Sales.Model.Repositories.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
 

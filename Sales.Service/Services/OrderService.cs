@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Sales.CrossCutting.Extensions;
-using Sales.Infrastructure.Repositories.Interfaces;
+using Sales.Model.Repositories.Interfaces;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
 using Sales.Service.Services.Base;

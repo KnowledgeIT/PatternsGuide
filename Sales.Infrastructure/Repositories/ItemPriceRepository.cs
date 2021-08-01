@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories.Base;
-using Sales.Infrastructure.Repositories.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+using Sales.Model.Repositories.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.Repositories
 {

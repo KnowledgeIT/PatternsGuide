@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sales.Infrastructure.Repositories.Base.Interfaces
+namespace Sales.Model.Repositories.Base.Interfaces
 {
     public interface IEntityRepositoryBase<TEntity, TDto> : IGenericRepositoryBase
         where TEntity : class

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using Sales.CrossCutting.Helpers;
-using Sales.Infrastructure.Contexts;
-using Sales.Infrastructure.Repositories.Base.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
+using Sales.Infrastructure.Contexts;
+using Sales.Model.Repositories.Base.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

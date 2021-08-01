@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Sales.Infrastructure.UoW.Interfaces
+namespace Sales.Model.UoW.Interfaces
 {
     public interface IUnitOfWork: IDisposable
     {

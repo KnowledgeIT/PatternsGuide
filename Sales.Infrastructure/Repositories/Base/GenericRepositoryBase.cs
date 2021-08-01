@@ -1,13 +1,13 @@
-﻿using Sales.Infrastructure.Contexts;
-using Sales.Infrastructure.Repositories.Base.Interfaces;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Sales.CrossCutting.Helpers;
-using System.Linq;
+using Sales.Infrastructure.Contexts;
+using Sales.Model.Repositories.Base.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using System;
-using Sales.Infrastructure.UoW.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.Repositories.Base
 {

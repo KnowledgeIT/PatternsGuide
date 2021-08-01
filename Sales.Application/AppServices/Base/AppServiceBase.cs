@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Sales.AppServices.Base.Interfaces;
-using Sales.Infrastructure.UoW.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using Sales.Service.Services.Base.Interfaces;
 using Sales.Service.ViewModels.Internal;
 using System.Collections.Generic;

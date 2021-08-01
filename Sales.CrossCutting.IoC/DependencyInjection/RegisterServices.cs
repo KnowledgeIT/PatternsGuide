@@ -1,13 +1,13 @@
-﻿using Sales.Application.AppServices;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Sales.Application.AppServices;
 using Sales.Application.AppServices.Interfaces;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories;
-using Sales.Infrastructure.Repositories.Interfaces;
 using Sales.Infrastructure.UoW;
-using Sales.Infrastructure.UoW.Interfaces;
+using Sales.Model.Repositories.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using Sales.Service.Services;
 using Sales.Service.Services.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Sales.CrossCutting.IoC.DependencyInjection
 {
