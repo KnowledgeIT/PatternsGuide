@@ -8,6 +8,7 @@ namespace Sales.Service.Services.Interfaces
 {
     public interface ITaxService : IEntityServiceBase<Tax, TaxDto, TaxViewModel>
     {
+        Task<Order> Calculate(Order order);
         ValueTask<decimal> GetTotalTaxesByItem(int itemId, bool sumImported = false);
     }
 }

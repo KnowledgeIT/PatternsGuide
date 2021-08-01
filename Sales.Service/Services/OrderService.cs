@@ -16,10 +16,8 @@ namespace Sales.Service.Services
     {
         #region Fields
 
-        private readonly IItemRepository _itemRepository;
-        private readonly IItemPriceRepository _itemPriceRepository;
         private readonly IOrderRepository _orderRepository;
-        private readonly ITaxRepository _taxRepository;
+        private readonly ITaxService _taxService;
 
         #endregion
 
@@ -27,18 +25,14 @@ namespace Sales.Service.Services
 
         public OrderService(
             IMapper mapper,
-            IItemRepository itemRepository,
-            IItemPriceRepository itemPriceRepository,
             IOrderRepository orderRepository,
-            ITaxRepository taxRepository) :
+            ITaxService taxService) :
             base(
                 mapper,
                 orderRepository)
         {
-            _itemRepository = itemRepository;
-            _itemPriceRepository = itemPriceRepository;
             _orderRepository = orderRepository;
-            _taxRepository = taxRepository;
+            _taxService = taxService;
         }
 
         #endregion
@@ -55,7 +49,7 @@ namespace Sales.Service.Services
 
             foreach(Order order in orders)
             {
-                await Calculate(order);
+                await _taxService.Calculate(order);
             }
 
             return await base.AddAsync(_mapper.Map<IList<Order>, IList<OrderViewModel>>(orders));
@@ -65,40 +59,14 @@ namespace Sales.Service.Services
         {
             var order = _mapper.Map<OrderViewModel, Order>(viewModel);
 
-            await Calculate(order);
-            
+            await _taxService.Calculate(order);
+
             return await base.AddAsync(_mapper.Map<Order, OrderViewModel>(order));
         }
 
         public override PagedViewModel<OrderViewModel> GetPagedList(int page, int pageSize, Dictionary<string, int> searchParams)
         {
             throw new System.NotImplementedException();
-        }
-
-        #endregion
-
-        #region Local methods
-
-        protected async Task<Order> Calculate(Order order)
-        {
-            foreach (OrderItem orderItem in order.OrderItem)
-            {
-                var isImported = await _itemRepository.IsImported(orderItem.ItemId);
-                var taxes = await _taxRepository.GetTotalTaxesByItem(orderItem.ItemId, isImported);
-                var netPrice = await _itemPriceRepository.GetPrice(orderItem.ItemId);
-
-                if (orderItem.NetPrice == 0)
-                    orderItem.NetPrice = netPrice * orderItem.Quantity;
-                else
-                    orderItem.NetPrice *= orderItem.Quantity;
-
-                orderItem.TotalTaxes = 
-                    taxes > 0 ? Math.Round(orderItem.NetPrice * (taxes / 100), 2).RoundCentsUp() : 0;
-                
-                orderItem.TotalPrice = Math.Round(orderItem.NetPrice + orderItem.TotalTaxes, 2);
-            }
-
-            return order;
         }
 
         #endregion
