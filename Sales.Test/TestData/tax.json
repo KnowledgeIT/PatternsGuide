@@ -9,5 +9,10 @@
     "description": "Import Duty",
     "value": 5,
     "imports": true
+  },
+  {
+    "id": 0,
+    "description": "Smoke",
+    "value": 10
   }
 ]

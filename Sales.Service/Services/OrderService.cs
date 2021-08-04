@@ -9,15 +9,17 @@ using Sales.Service.ViewModels.Internal;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Sales.Model.UoW.Interfaces;
 
 namespace Sales.Service.Services
 {
-    public class OrderService: EntityServiceBase<Order, OrderDto, OrderViewModel>, IOrderService
+    public class OrderService: EntityServiceBase<Order, OrderViewModel>, IOrderService
     {
         #region Fields
 
         private readonly IOrderRepository _orderRepository;
         private readonly ITaxService _taxService;
+        private readonly IUnitOfWork _unitOfWork;
 
         #endregion
 
@@ -26,13 +28,16 @@ namespace Sales.Service.Services
         public OrderService(
             IMapper mapper,
             IOrderRepository orderRepository,
-            ITaxService taxService) :
+            ITaxService taxService,
+            IUnitOfWork unitOfWork) :
             base(
                 mapper,
-                orderRepository)
+                orderRepository,
+                unitOfWork)
         {
             _orderRepository = orderRepository;
             _taxService = taxService;
+            _unitOfWork = unitOfWork;
         }
 
         #endregion

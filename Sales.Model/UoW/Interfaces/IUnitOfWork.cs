@@ -6,6 +6,7 @@ namespace Sales.Model.UoW.Interfaces
 {
     public interface IUnitOfWork: IDisposable
     {
+        IExecutionStrategy CreateExecutionStrategy();
         Task<IDbContextTransaction> BeginTransaction();
         void RollBackTransaction(IDbContextTransaction dbContextTransaction);
         void CommitTransaction(IDbContextTransaction dbContextTransaction);

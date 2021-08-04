@@ -2,19 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories.Base;
-using Sales.Model.Dto;
 using Sales.Model.Entities;
 using Sales.Model.Repositories.Interfaces;
-using Sales.Model.UoW.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.Repositories
 {
-    public class TaxRepository : EntityRepositoryBase<Tax, TaxDto>, ITaxRepository
+    public class TaxRepository : EntityRepositoryBase<Tax>, ITaxRepository
     {
-        public TaxRepository(Context context, IMapper mapper, IUnitOfWork unitOfWork) : base(context, mapper, unitOfWork)
+        public TaxRepository(Context context, IMapper mapper) : base(context, mapper)
         {
 
         }

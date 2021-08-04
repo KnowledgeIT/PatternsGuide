@@ -29,6 +29,8 @@ namespace Sales.Infrastructure.UoW
 
         #region Methods
 
+        public IExecutionStrategy CreateExecutionStrategy() => _context.Database.CreateExecutionStrategy();
+
         /// <summary>
         /// Permite a implementação de Transaction para cenários específicos.
         /// </summary>

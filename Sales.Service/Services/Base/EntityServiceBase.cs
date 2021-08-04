@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Sales.CrossCutting.Helpers;
 using Sales.Model.Repositories.Base.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using Sales.Service.Services.Base.Interfaces;
 using Sales.Service.ViewModels.Internal;
 using System.Collections.Generic;
@@ -8,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Sales.Service.Services.Base
 {
-    public abstract class EntityServiceBase<TEntity, TDto, TViewModel> : 
-        IEntityServiceBase<TEntity, TDto, TViewModel>, IViewModelServiceBase<TViewModel>
+    public abstract class EntityServiceBase<TEntity, TViewModel> : 
+        IEntityServiceBase<TEntity, TViewModel>, IViewModelServiceBase<TViewModel>
         where TEntity : class
-        where TDto : class
         where TViewModel : class
     {
         #region Fields
 
         protected readonly IMapper _mapper;
-        private readonly IEntityRepositoryBase<TEntity, TDto> _repository;
+        private readonly IEntityRepositoryBase<TEntity> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
         #endregion
 
@@ -25,10 +26,12 @@ namespace Sales.Service.Services.Base
 
         public EntityServiceBase(
             IMapper mapper,
-            IEntityRepositoryBase<TEntity, TDto> repository)
+            IEntityRepositoryBase<TEntity> repository,
+            IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         #endregion
@@ -40,18 +43,20 @@ namespace Sales.Service.Services.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async virtual Task<TEntity> AddAsync(TEntity entity)
+        public async virtual Task AddAsync(TEntity entity)
         {
-            return await _repository.AddAsync(entity);
+            await _repository.AddAsync(entity);
+            await _unitOfWork.CommitAsync();
         }
 
         /// <summary>
         /// Inclui vários itens do repositório
         /// </summary>
         /// <param name="entities"></param>
-        public async virtual Task<IList<TEntity>> AddAsync(IList<TEntity> entities)
+        public async virtual Task AddAsync(IList<TEntity> entities)
         {
-            return await _repository.AddAsync(entities);
+            await _repository.AddAsync(entities);
+            await _unitOfWork.CommitAsync();
         }
 
         /// <summary>
@@ -89,7 +94,8 @@ namespace Sales.Service.Services.Base
         /// <param name="entity"></param>
         public virtual bool Update(TEntity entity)
         {
-            return _repository.Update(entity);
+            _repository.Update(entity);
+            return _unitOfWork.Commit();
         }
 
         /// <summary>
@@ -98,7 +104,8 @@ namespace Sales.Service.Services.Base
         /// <param name="entities"></param>
         public virtual bool Update(IList<TEntity> entities)
         {
-            return _repository.Update(entities);
+            _repository.Update(entities);
+            return _unitOfWork.Commit();
         }
 
         /// <summary>
@@ -107,7 +114,8 @@ namespace Sales.Service.Services.Base
         /// <param name="list"></param>
         public virtual async Task<bool> UpdateAsync(TEntity entity)
         {
-            return await _repository.UpdateAsync(entity);
+            await _repository.UpdateAsync(entity);
+            return await _unitOfWork.CommitAsync();
         }
 
         /// <summary>
@@ -116,7 +124,8 @@ namespace Sales.Service.Services.Base
         /// <param name="entity"></param>
         public virtual bool Delete(TEntity entity)
         {
-            return _repository.Delete(entity);
+            _repository.Delete(entity);
+            return _unitOfWork.Commit();
         }
 
         /// <summary>
@@ -125,7 +134,8 @@ namespace Sales.Service.Services.Base
         /// <param name="entity"></param>
         public virtual bool Delete(IList<TEntity> entity)
         {
-            return _repository.Delete(entity);
+            _repository.Delete(entity);
+            return _unitOfWork.Commit();
         }
 
         /// <summary>
@@ -135,7 +145,8 @@ namespace Sales.Service.Services.Base
         /// <returns></returns>
         public virtual async Task<bool> DeleteAsync(int id)
         {
-            return await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(id);
+            return await _unitOfWork.CommitAsync();
         }
 
         /// <summary>
@@ -145,7 +156,8 @@ namespace Sales.Service.Services.Base
         /// <returns></returns>
         public virtual async Task<bool> DeleteAsync(long id)
         {
-            return await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(id);
+            return await _unitOfWork.CommitAsync();
         }
 
         /// <summary>
@@ -159,116 +171,6 @@ namespace Sales.Service.Services.Base
 
         #endregion
 
-        #region DTO Methods
-
-        /// <summary>
-        /// Adiciona uma nova entidade recebendo uma DTO
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
-        public virtual async Task<TDto> AddAsync(TDto dto)
-        {
-            return _mapper.Map<TEntity, TDto>(
-                await AddAsync(_mapper.Map<TDto, TEntity>(dto)));
-        }
-
-        /// <summary>
-        /// Adiciona uma lista de entidades por uma lista de DTOs
-        /// </summary>
-        /// <param name="dtos"></param>
-        /// <returns></returns>
-        public virtual async Task<IList<TDto>> AddAsync(IList<TDto> dtos)
-        {
-            return _mapper.Map<IList<TEntity>, IList<TDto>>(
-                await AddAsync(_mapper.Map<IList<TDto>, IList<TEntity>>(dtos)));
-        }
-
-        /// <summary>
-        /// Deletes or Removes an Entity por uma DTO
-        /// </summary>
-        /// <param name="dto"></param>
-        public virtual bool Delete(TDto dto)
-        {
-            return Delete(_mapper.Map<TDto, TEntity>(dto));
-        }
-
-        /// <summary>
-        /// Remove uma lista de entidades por uma lista de DTOs
-        /// </summary>
-        /// <param name="dtos"></param>
-        public virtual bool Delete(IList<TDto> dtos)
-        {
-            return Delete(_mapper.Map<IList<TDto>, IList<TEntity>>(dtos));
-        }
-
-        /// <summary>
-        /// Desacopla a entidade do contexto por meio da DTO
-        /// </summary>
-        /// <param name="dto"></param>
-        public virtual void DetachEntity(TDto dto)
-        {
-            DetachEntity(_mapper.Map<TDto, TEntity>(dto));
-        }
-
-        /// <summary>
-        /// Retorna uma entidade convertida em DTO
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public virtual async Task<TDto> GetDtoAsync(int id)
-        {
-            return _mapper.Map<TEntity, TDto>(await GetEntityAsync(id));
-        }
-
-        /// <summary>
-        /// Retorna uma entidade convertida em DTO
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public virtual async Task<TDto> GetDtoAsync(long id)
-        {
-            return _mapper.Map<TEntity, TDto>(await GetEntityAsync(id));
-        }
-
-        /// <summary>
-        /// Retorna uma lista de DTOs
-        /// </summary>
-        /// <returns></returns>
-        public virtual async Task<IList<TDto>> ListDtoAsync()
-        {
-            return _mapper.Map<IList<TEntity>, IList<TDto>>(await ListEntityAsync());
-        }
-
-        /// <summary>
-        /// Atualiza uma lista de entidades por uma lista de DTOs
-        /// </summary>
-        /// <param name="dtos"></param>
-        public virtual bool Update(IList<TDto> dtos)
-        {
-            return Update(_mapper.Map<IList<TDto>, IList<TEntity>>(dtos));
-        }
-
-        /// <summary>
-        /// Atualiza uma entidade por uma DTO
-        /// </summary>
-        /// <param name="dto"></param>
-        public virtual bool Update(TDto dto)
-        {
-            return Update(_mapper.Map<TDto, TEntity>(dto));
-        }
-
-        /// <summary>
-        /// Atualiza uma entidade por uma DTO
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
-        public virtual async Task<bool> UpdateAsync(TDto dto)
-        {
-            return await UpdateAsync(_mapper.Map<TDto, TEntity>(dto));
-        }
-
-        #endregion
-
         #region ViewModel Methods
 
         /// <summary>
@@ -278,8 +180,9 @@ namespace Sales.Service.Services.Base
         /// <returns></returns>
         public virtual async Task<TViewModel> AddAsync(TViewModel viewModel)
         {
-            return _mapper.Map<TEntity, TViewModel>(
-                await AddAsync(_mapper.Map<TViewModel, TEntity>(viewModel)));
+            var result = _mapper.Map<TViewModel, TEntity>(viewModel); 
+            await AddAsync(result);
+            return _mapper.Map<TEntity, TViewModel>(result);
         }
 
         /// <summary>
@@ -289,8 +192,9 @@ namespace Sales.Service.Services.Base
         /// <returns></returns>
         public virtual async Task<IList<TViewModel>> AddAsync(IList<TViewModel> viewModels)
         {
-            return _mapper.Map<IList<TEntity>, IList<TViewModel>>(
-                await AddAsync(_mapper.Map<IList<TViewModel>, IList<TEntity>>(viewModels)));
+            var result = _mapper.Map<IList<TViewModel>, IList<TEntity>>(viewModels);
+            await AddAsync(result);
+            return _mapper.Map<IList<TEntity>, IList<TViewModel>>(result);
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ using Sales.Service.ViewModels.Internal;
 
 namespace Sales.Service.Services.Interfaces
 {
-    public interface ICategoryService : IEntityServiceBase<Category, CategoryDto, CategoryViewModel>
+    public interface ICategoryService : IEntityServiceBase<Category, CategoryViewModel>
     {
 
     }

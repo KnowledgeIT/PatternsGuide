@@ -5,7 +5,7 @@ using Sales.Service.ViewModels.Internal;
 
 namespace Sales.Service.Services.Interfaces
 {
-    public interface IItemPriceService : IEntityServiceBase<ItemPrice, ItemPriceDto, ItemPriceViewModel>
+    public interface IItemPriceService : IEntityServiceBase<ItemPrice, ItemPriceViewModel>
     {
 
     }

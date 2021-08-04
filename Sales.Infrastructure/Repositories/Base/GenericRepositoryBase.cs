@@ -17,17 +17,15 @@ namespace Sales.Infrastructure.Repositories.Base
 
         protected readonly Context _context;
         protected readonly IMapper _mapper;
-        protected readonly IUnitOfWork _unitOfWork;
 
         #endregion
 
         #region Constructor
 
-        public GenericRepositoryBase(Context context, IMapper mapper, IUnitOfWork unitOfWork)
+        public GenericRepositoryBase(Context context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
         }
 
         #endregion
@@ -39,42 +37,36 @@ namespace Sales.Infrastructure.Repositories.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public virtual async Task<T> AddAsync<T>(T entity) where T : class
+        public virtual async Task AddAsync<T>(T entity) where T : class
         {
             await _context.Set<T>().AddAsync(entity);
-            await _unitOfWork.SaveChangesAsync();
-            return entity;
         }
 
         /// <summary>
         /// Inclui vários itens do repositório
         /// </summary>
         /// <param name="list"></param>
-        public virtual async Task<IList<T>> AddAsync<T>(IList<T> list)
+        public virtual async Task AddAsync<T>(IList<T> list)
         {
             await _context.AddRangeAsync(list);
-            await _unitOfWork.SaveChangesAsync();
-            return list;
         }
 
         /// <summary>
         /// Remove a entidade do repositório
         /// </summary>
         /// <param name="entity"></param>
-        public virtual bool Delete<T>(T entity) where T : class
+        public virtual void Delete<T>(T entity) where T : class
         {
             _context.Set<T>().Remove(entity);
-            return _unitOfWork.SaveChanges();
         }
 
         /// <summary>
         /// Remove várias entidades do repositório 
         /// </summary>
         /// <param name="entity"></param>
-        public virtual bool Delete<T>(IList<T> entity) where T : class
+        public virtual void Delete<T>(IList<T> entity) where T : class
         {
             _context.Set<T>().RemoveRange(entity);
-            return _unitOfWork.SaveChanges();
         }
 
         /// <summary>
@@ -82,13 +74,11 @@ namespace Sales.Infrastructure.Repositories.Base
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public virtual async Task<bool> DeleteAsync<T>(int id) where T : class
+        public virtual async Task DeleteAsync<T>(int id) where T : class
         {
             var obj = await GetAsync<T>(id);
             if (obj != null)
                 _context.Set<T>().Remove(obj);
-
-            return _unitOfWork.SaveChanges();
         }
 
         /// <summary>
@@ -145,34 +135,30 @@ namespace Sales.Infrastructure.Repositories.Base
         /// Marca para atualização a entidade passada
         /// </summary>
         /// <param name="entity"></param>
-        public virtual bool Update<T>(T entity)
+        public virtual void Update<T>(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
-            return _unitOfWork.SaveChanges();
         }
 
         /// <summary>
         /// Atualiza vários itens do repositório
         /// </summary>
         /// <param name="list"></param>
-        public virtual bool Update<T>(IList<T> list)
+        public virtual void Update<T>(IList<T> list)
         {
             _context.Set<IList<T>>().UpdateRange(list);
-            return _unitOfWork.SaveChanges();
         }
 
         /// <summary>
         /// Atualiza itens do repositório de forma asyncrona
         /// </summary>
         /// <param name="list"></param>
-        public virtual async Task<bool> UpdateAsync<T>(T entity)
+        public virtual async Task UpdateAsync<T>(T entity)
         {
             await Task.Run(() =>
             {
                 _context.Entry(entity).State = EntityState.Modified;
             });
-
-            return await _unitOfWork.SaveChangesAsync();
         }
 
         /// <summary>

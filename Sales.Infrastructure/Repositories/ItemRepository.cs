@@ -2,18 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Sales.Infrastructure.Contexts;
 using Sales.Infrastructure.Repositories.Base;
-using Sales.Model.Dto;
 using Sales.Model.Entities;
 using Sales.Model.Repositories.Interfaces;
-using Sales.Model.UoW.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.Repositories
 {
-    public class ItemRepository : EntityRepositoryBase<Item, ItemDto>, IItemRepository
+    public class ItemRepository : EntityRepositoryBase<Item>, IItemRepository
     {
-        public ItemRepository(Context context, IMapper mapper, IUnitOfWork unitOfWork) : base(context, mapper, unitOfWork)
+        public ItemRepository(Context context, IMapper mapper) : base(context, mapper)
         {
 
         }

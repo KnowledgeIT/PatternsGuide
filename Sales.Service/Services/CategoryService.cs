@@ -11,18 +11,22 @@ using System.Threading.Tasks;
 
 namespace Sales.Service.Services
 {
-    public class CategoryService: EntityServiceBase<Category, CategoryDto, CategoryViewModel>, ICategoryService
+    public class CategoryService: EntityServiceBase<Category, CategoryViewModel>, ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public CategoryService (
             IMapper mapper,
-            ICategoryRepository categoryRepository) :
+            ICategoryRepository categoryRepository,
+            IUnitOfWork unitOfWork) :
             base(
                 mapper,
-                categoryRepository)
+                categoryRepository,
+                unitOfWork)
         {
             _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public override PagedViewModel<CategoryViewModel> GetPagedList(int page, int pageSize, Dictionary<string, int> searchParams)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sales.Service.Services.Interfaces
 {
-    public interface ITaxService : IEntityServiceBase<Tax, TaxDto, TaxViewModel>
+    public interface ITaxService : IEntityServiceBase<Tax, TaxViewModel>
     {
         Task<Order> Calculate(Order order);
         ValueTask<decimal> GetTotalTaxesByItem(int itemId, bool sumImported = false);

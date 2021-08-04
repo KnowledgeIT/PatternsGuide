@@ -5,16 +5,15 @@ using Sales.Infrastructure.Repositories.Base;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
 using Sales.Model.Repositories.Interfaces;
-using Sales.Model.UoW.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.Repositories
 {
-    public class OrderRepository : EntityRepositoryBase<Order, OrderDto>, IOrderRepository
+    public class OrderRepository : EntityRepositoryBase<Order>, IOrderRepository
     {
-        public OrderRepository(Context context, IMapper mapper, IUnitOfWork unitOfWork) : base(context, mapper, unitOfWork)
+        public OrderRepository(Context context, IMapper mapper) : base(context, mapper)
         {
 
         }

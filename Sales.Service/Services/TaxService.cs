@@ -3,6 +3,7 @@ using Sales.CrossCutting.Extensions;
 using Sales.Model.Dto;
 using Sales.Model.Entities;
 using Sales.Model.Repositories.Interfaces;
+using Sales.Model.UoW.Interfaces;
 using Sales.Service.Services.Base;
 using Sales.Service.Services.Interfaces;
 using Sales.Service.ViewModels.Internal;
@@ -12,13 +13,14 @@ using System.Threading.Tasks;
 
 namespace Sales.Service.Services
 {
-    public class TaxService: EntityServiceBase<Tax, TaxDto, TaxViewModel>, ITaxService
+    public class TaxService: EntityServiceBase<Tax, TaxViewModel>, ITaxService
     {
         #region Fields
 
         private readonly IItemRepository _itemRepository;
         private readonly IItemPriceRepository _itemPriceRepository;
         private readonly ITaxRepository _taxRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         #endregion
 
@@ -28,14 +30,17 @@ namespace Sales.Service.Services
             IMapper mapper,
             IItemRepository itemRepository,
             IItemPriceRepository itemPriceRepository,
-            ITaxRepository taxRepository) :
+            ITaxRepository taxRepository,
+            IUnitOfWork unitOfWork) :
             base(
                 mapper,
-                taxRepository)
+                taxRepository,
+                unitOfWork)
         {
             _itemRepository = itemRepository;
             _itemPriceRepository = itemPriceRepository;
             _taxRepository = taxRepository;
+            _unitOfWork = unitOfWork;
         }
 
         #endregion

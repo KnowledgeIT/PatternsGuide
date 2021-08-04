@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sales.Service.Services.Interfaces
 {
-    public interface IOrderService : IEntityServiceBase<Order, OrderDto, OrderViewModel>
+    public interface IOrderService : IEntityServiceBase<Order, OrderViewModel>
     {
         Task<IList<OrderReceiptViewModel>> GetReceipt(int id);
     }
