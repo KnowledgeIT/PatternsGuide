@@ -19,9 +19,7 @@ namespace Sales.Infrastructure.Contexts.Base
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LEGACY\LEGACY;Initial Catalog=SALES;Integrated Security=True;MultipleActiveResultSets=True;");
-
-            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Src\KiT\PatternsGuide\Sales.Infrastructure\Sql\Sales.mdf;Integrated Security=True;MultipleActiveResultSets=True");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Src\KiT\PatternsGuide\Sales.Infrastructure\Sql\Sales.mdf;Integrated Security=True;MultipleActiveResultSets=True");
 
             optionsBuilder.EnableSensitiveDataLogging(true);
         }

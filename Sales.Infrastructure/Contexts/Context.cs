@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Sales.Model.Entities;
 using Sales.Infrastructure.Contexts.Base;
+using Sales.Model.Entities;
 
 #nullable disable
 
@@ -21,18 +21,29 @@ namespace Sales.Infrastructure.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.Name).IsUnicode(false);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<CategoryTax>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.CategoryTax)
@@ -49,18 +60,34 @@ namespace Sales.Infrastructure.Contexts
 
             modelBuilder.Entity<Item>(entity =>
             {
-                entity.Property(e => e.Available).HasDefaultValueSql("((1))");
+                entity.Property(e => e.Available)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.Description).IsUnicode(false);
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(512)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Name).IsUnicode(false);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<ItemCategory>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.ItemCategory)
@@ -77,7 +104,17 @@ namespace Sales.Infrastructure.Contexts
 
             modelBuilder.Entity<ItemPrice>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.EndDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 4)");
+
+                entity.Property(e => e.StartDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Item)
                     .WithMany(p => p.ItemPrice)
@@ -88,12 +125,32 @@ namespace Sales.Infrastructure.Contexts
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CompletedAt).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CompletedAt).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.NetPrice).HasColumnType("decimal(18, 4)");
+
+                entity.Property(e => e.Quantity).HasColumnType("decimal(12, 2)");
+
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 4)");
+
+                entity.Property(e => e.TotalTaxes).HasColumnType("decimal(18, 4)");
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Item)
                     .WithMany(p => p.OrderItem)
@@ -110,9 +167,18 @@ namespace Sales.Infrastructure.Contexts
 
             modelBuilder.Entity<Tax>(entity =>
             {
-                entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.Description).IsUnicode(false);
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+                entity.Property(e => e.Value).HasColumnType("decimal(5, 2)");
             });
 
             OnModelCreatingPartial(modelBuilder);
