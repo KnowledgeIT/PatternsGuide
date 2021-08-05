@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Sales.CrossCutting.Extensions;
 using System;
 using System.Linq;
 using System.Threading;
@@ -19,8 +21,12 @@ namespace Sales.Infrastructure.Contexts.Base
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Src\KiT\PatternsGuide\Sales.Infrastructure\Sql\Sales.mdf;Integrated Security=True;MultipleActiveResultSets=True");
-
+            //optionsBuilder.UseSqlServer(@"Data Source=<Your Local Server>;AttachDbFilename=<Your Sales.mdf Path>;Integrated Security=True;MultipleActiveResultSets=True");
+            //
+            // Or, create the database and Environment Variable and use it like below:
+            //
+            var config = new ConfigurationBuilder();
+            optionsBuilder.UseSqlServer(config.GetConnectionStringFromEnvironment("salesConnection"));
             optionsBuilder.EnableSensitiveDataLogging(true);
         }
 
