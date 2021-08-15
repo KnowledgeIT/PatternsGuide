@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Sales.CrossCutting.Extensions;
+using Sales.CrossCutting.Properties;
 using System;
 using System.Linq;
 using System.Threading;
@@ -26,7 +27,7 @@ namespace Sales.Infrastructure.Contexts.Base
             // Or, create the database and Environment Variable and use it like below:
             //
             var config = new ConfigurationBuilder();
-            optionsBuilder.UseSqlServer(config.GetConnectionStringFromEnvironment("salesConnection"));
+            optionsBuilder.UseSqlServer(config.GetConnectionStringFromEnvironment(SharedConnection.ConnectionString));
             optionsBuilder.EnableSensitiveDataLogging(true);
         }
 
